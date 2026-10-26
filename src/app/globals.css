@@ -1,26 +1,169 @@
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
+  background: #f6f7fb;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+.resume-paper {
+  width: 100%;
+  color: #172033;
+}
+
+.resume-section {
+  break-inside: avoid;
+}
+
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+  html,
+  body {
+    background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .no-print,
+  aside,
+  header,
+  footer {
+    display: none !important;
+  }
+
+  main,
+  main > div,
+  main > div > div,
+  section {
+    margin: 0 !important;
+    max-width: none !important;
+  }
+
+  main > div {
+    padding: 0 !important;
+  }
+
+  main > div > div {
+    display: block !important;
+    padding: 0 !important;
+  }
+
+  .print-area {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  .resume-paper {
+    width: 100% !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .resume-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+
+/* CareerForge premium templates */
+
+.resume-document {
+  width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.resume-executive .resume-heading {
+  color: #242424;
+  border-bottom: 1px solid #d5d5d5;
+  padding-bottom: 7px;
+}
+
+.resume-atelier .resume-heading {
+  color: #8d7158;
+  border-bottom: 1px solid #d8cabb;
+  padding-bottom: 7px;
+}
+
+.resume-signature .resume-heading {
+  color: #987b4c;
+  border-bottom: 1px solid #ebe6dd;
+  padding-bottom: 7px;
+}
+
+.resume-minimal .resume-heading {
+  color: #49364b;
+}
+
+.resume-skill {
+  display: inline-block;
+  font-size: 10px;
+  line-height: 1.6;
+  padding: 4px 9px;
+  border-radius: 5px;
+  background: #f0eeea;
+  color: #413e3a;
+}
+
+.resume-atelier .resume-skill {
+  background: #eae0d3;
+}
+
+.resume-section {
+  break-inside: avoid;
+}
+
+@media print {
+  .resume-document {
+    min-height: 0 !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .resume-signature .resume-sidebar {
+    background: #222329 !important;
+    color: white !important;
+  }
 }
